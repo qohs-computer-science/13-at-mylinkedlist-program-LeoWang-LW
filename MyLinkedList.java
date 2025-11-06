@@ -28,7 +28,7 @@ public class MyLinkedList
         int position = 0; 
 
         while(current!= null){
-            output = String.valueOf(position) + ":" + current.getValue();
+            output += position + ":" + current.getValue();
             position += 1;
             current = current.getNext();
 
@@ -37,14 +37,14 @@ public class MyLinkedList
     }
     public boolean add(Object newItem){
         if(head == null){
-            ListNode newNode = new ListNode(null, null);
+            ListNode newNode = new ListNode(newItem, null);
             head = newNode;
         }
         else{
             ListNode current = head; 
             while(current.getNext() != null){
                 current = current.getNext(); 
-                ListNode newNode = new ListNode(null, null);
+                ListNode newNode = new ListNode(newItem, null);
                 current = newNode;
             }
              
@@ -54,7 +54,7 @@ public class MyLinkedList
     }
 
     public boolean addFirst(Object newItem){
-        ListNode newNode = new ListNode(null,null); 
+        ListNode newNode = new ListNode(newItem,head); 
         newNode = head; 
         head = newNode; 
         size += 1; 
