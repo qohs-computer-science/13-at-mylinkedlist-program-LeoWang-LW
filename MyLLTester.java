@@ -6,8 +6,7 @@ public class MyLLTester
     System.out.println(Chris.size()); 
     Chris.add("Meade");
     Chris.addLast("Enzo");
-    System.out.println(Chris.toString()); 
-
+    System.out.println(Chris.toString());
 
   } // end main
   

@@ -30,8 +30,7 @@ public class MyLinkedList
         while(current!= null){
             output += position + ":" + current.getValue();
             position += 1;
-            current = current.getNext();
-
+            current = head.getNext();
         }
         return output; 
     }
@@ -65,5 +64,8 @@ public class MyLinkedList
         add(newItem); 
         return true; 
     }
+
+
+
 }
 
