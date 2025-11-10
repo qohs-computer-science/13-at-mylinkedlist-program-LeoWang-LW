@@ -5,8 +5,11 @@ public class MyLLTester
     MyLinkedList Chris = new MyLinkedList(); 
     System.out.println(Chris.size()); 
     Chris.add("Meade");
-    Chris.addLast("Enzo");
+    Chris.addFirst("Enzo");
+    Chris.addLast("Nick");
+    System.out.println(Chris.size()); 
     System.out.println(Chris.toString());
+    System.out.println(Chris.get(2)); 
 
   } // end main
   

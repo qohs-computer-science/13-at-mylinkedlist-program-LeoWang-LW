@@ -27,34 +27,32 @@ public class MyLinkedList
         ListNode current = head; 
         int position = 0; 
 
-        while(current!= null){
-            output += position + ":" + current.getValue();
+        while(current != null){
+            output += position + ":" + current.getValue() + "\n";
             position += 1;
-            current = head.getNext();
+            current = current.getNext();
         }
         return output; 
     }
     public boolean add(Object newItem){
+        ListNode newNode = new ListNode(newItem, null); 
         if(head == null){
-            ListNode newNode = new ListNode(newItem, null);
             head = newNode;
+            size++;
+            return true; 
         }
-        else{
-            ListNode current = head; 
-            while(current.getNext() != null){
-                current = current.getNext(); 
-                ListNode newNode = new ListNode(newItem, null);
-                current = newNode;
-            }
-             
+
+        ListNode temp = head; 
+        while(temp.getNext() != null){
+            temp = temp.getNext(); 
         }
-        size+= 1; 
+        size++;
+        temp.setNext(newNode); 
         return true; 
     }
 
     public boolean addFirst(Object newItem){
-        ListNode newNode = new ListNode(newItem,head); 
-        newNode = head; 
+        ListNode newNode = new ListNode(newItem, head); 
         head = newNode; 
         size += 1; 
         return true; 
@@ -64,6 +62,22 @@ public class MyLinkedList
         add(newItem); 
         return true; 
     }
+
+    public Object get(int i){
+        int x = 0;
+        if(i < 0 || i >= size){
+            throw new IndexOutOfBoundsException(); 
+        }
+        ListNode current = head; 
+        while( x != i){
+            current = current.getNext(); 
+            x++;
+        }
+        return current.getValue(); 
+    }
+
+    
+
 
 
 
