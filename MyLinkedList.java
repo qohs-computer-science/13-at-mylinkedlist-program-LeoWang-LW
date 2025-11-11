@@ -76,6 +76,64 @@ public class MyLinkedList
         return current.getValue(); 
     }
 
+    public Object set(int i, Object newValue){
+        String oldValue = ""; 
+        int x = 0; 
+        if(i < 0 || i >= size){
+            throw new IndexOutOfBoundsException();
+        }
+        ListNode current = head; 
+        while(x != i){
+            current = current.getNext(); 
+            x++;
+        }
+        oldValue = ((String) current.getValue()); 
+        current.setValue(newValue); 
+        return oldValue; 
+
+    }
+
+    public Object remove(int i){
+        if(i < 0 || i >= size){
+            throw new IndexOutOfBoundsException();
+        }
+        
+        if( i == 0){
+            return removeFirst(); 
+        }
+        ListNode current = head; 
+        for (int x = 0; x < i - 1; x++){
+            current = current.getNext();
+        }
+        ListNode removed = current.getNext(); 
+        Object removedValue = removed.getValue(); 
+
+        current.setNext(removed.getNext()); 
+        removed.setNext(null); 
+        size--; 
+        return removedValue; 
+
+    }
+
+    public Object removeFirst(){
+        if( head == null){
+            return null; 
+        }
+        Object removedValue = head.getValue();
+        ListNode remove = head; 
+        head = head.getNext(); 
+        remove.setNext(null); 
+        size--; 
+        return removedValue; 
+    }
+
+    public Object removeLast(){
+        if( head == null){
+            return null; 
+        }
+        return remove(size - 1); 
+    }
+
     
 
 
